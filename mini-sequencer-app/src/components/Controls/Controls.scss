@@ -1,0 +1,204 @@
+.controls-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background-color: #d0d0d0;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  box-shadow: inset 1px 1px 2px #fff, inset -1px -1px 2px #aaa;
+
+  .transport-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .control-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: radial-gradient(circle at 30% 30%, #444, #222);
+    color: white;
+    box-shadow:
+      2px 2px 5px rgba(0,0,0,0.3),
+      inset 2px 2px 5px rgba(255,255,255,0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s, box-shadow 0.1s;
+
+    &:active, &.active {
+      transform: scale(0.95);
+      box-shadow:
+        inset 2px 2px 5px rgba(0,0,0,0.3),
+        1px 1px 2px rgba(255,255,255,0.1);
+      background: radial-gradient(circle at 30% 30%, #333, #111);
+    }
+  }
+
+  .metronome-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    .metronome-label {
+      font-size: 0.6rem;
+      font-weight: bold;
+      color: #555;
+      font-family: 'Roboto', sans-serif;
+    }
+  }
+
+  .clear-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    .clear-label {
+      font-size: 0.6rem;
+      font-weight: bold;
+      color: #555;
+      font-family: 'Roboto', sans-serif;
+    }
+  }
+
+  .control-btn.small {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle at 30% 30%, #444, #222);
+    
+    &:active, &.active {
+      background: radial-gradient(circle at 30% 30%, #333, #111);
+    }
+
+    &.metronome-btn {
+      position: relative;
+      
+      .metronome-icon {
+        width: 16px;
+        height: 20px;
+        border-bottom: 2px solid white;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        
+        .stick {
+          width: 2px;
+          height: 16px;
+          background-color: white;
+          transform-origin: bottom center;
+          animation: none;
+        }
+      }
+
+      &.active .stick {
+        animation: tick-tock 1s infinite ease-in-out alternate;
+      }
+    }
+
+    &.clear-btn {
+      background: radial-gradient(circle at 30% 30%, #e74c3c, #c0392b);
+      
+      &:active {
+        background: radial-gradient(circle at 30% 30%, #c0392b, #922b21);
+      }
+    }
+  }
+
+  @keyframes tick-tock {
+    from { transform: rotate(-30deg); }
+    to { transform: rotate(30deg); }
+  }
+
+  .bpm-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+
+    label {
+      font-size: 0.7rem;
+      font-weight: bold;
+      color: #555;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .bpm-inputs {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+
+      input[type="range"] {
+        flex: 1;
+        cursor: pointer;
+      }
+
+      .bpm-number-input {
+        width: 50px;
+        padding: 4px;
+        border: 1px solid #999;
+        border-radius: 4px;
+        background-color: #eee;
+        font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        text-align: center;
+      }
+    }
+  }
+
+  .section-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+
+    label {
+      font-size: 0.7rem;
+      font-weight: bold;
+      color: #555;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .section-buttons {
+      display: flex;
+      gap: 5px;
+    }
+
+    .section-btn {
+      width: 25px;
+      height: 25px;
+      border-radius: 4px;
+      border: 1px solid #999;
+      background-color: #eee;
+      color: #333;
+      font-size: 0.8rem;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+
+      &:active {
+        transform: scale(0.95);
+        box-shadow: inset 1px 1px 2px rgba(0,0,0,0.2);
+      }
+
+      &.active {
+        background-color: #5dade2;
+        color: white;
+        border-color: #2e86c1;
+        box-shadow: inset 1px 1px 3px rgba(0,0,0,0.3);
+      }
+    }
+  }
+}

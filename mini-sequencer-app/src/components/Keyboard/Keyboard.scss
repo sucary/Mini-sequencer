@@ -1,0 +1,72 @@
+.keyboard-container {
+  background-color: #333;
+  padding: 10px 10px 20px 10px;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: inset 0 5px 10px rgba(0,0,0,0.5);
+  
+  .keys-wrapper {
+    display: flex;
+    position: relative;
+    height: 120px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .piano-key {
+    position: relative;
+    border: 1px solid #000;
+    border-radius: 0 0 4px 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    transition: background-color 0.1s, transform 0.1s;
+    box-shadow: 
+      2px 2px 5px rgba(0,0,0,0.3),
+      inset -2px -5px 10px rgba(0,0,0,0.1);
+
+    &:active {
+      transform: translateY(2px);
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+    }
+
+    &.white {
+      flex: 1;
+      min-width: 20px;
+      height: 100%;
+      background-color: #fdfdfd;
+      color: #333;
+      z-index: 1;
+
+      &:active {
+        background-color: #eee;
+      }
+    }
+
+    &.black {
+      width: 6%; // Relative width
+      height: 65%;
+      background-color: #222;
+      color: #fff;
+      z-index: 2;
+      margin-left: -3%;
+      margin-right: -3%;
+      
+      &:active {
+        background-color: #000;
+      }
+
+      .key-label {
+        font-size: 0.6rem;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

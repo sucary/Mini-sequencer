@@ -1,0 +1,81 @@
+.display-container {
+  background-color: #444;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #222;
+  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5);
+  flex: 1;
+  min-width: 200px;
+
+  .screen {
+    background-color: #9ea792; // Classic LCD green/grey
+    padding: 10px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    color: #222;
+    box-shadow: inset 1px 1px 3px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 100px;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+
+    // Scanline effect
+    &::after {
+      content: " ";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+      background-size: 100% 4px;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1;
+    }
+
+    .label {
+      font-size: 0.8rem;
+      font-weight: bold;
+      opacity: 0.7;
+    }
+
+    .value {
+      font-weight: bold;
+      font-size: 1rem;
+      
+      &.large {
+        font-size: 1.5rem;
+        font-family: monospace;
+      }
+    }
+
+    .status-bar {
+      border-top: 1px solid rgba(0,0,0,0.1);
+      padding-top: 5px;
+      font-size: 0.7rem;
+    }
+
+    .status-indicator {
+      &.active {
+        animation: blink 1s infinite;
+      }
+    }
+  }
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}

@@ -1,0 +1,120 @@
+.sequencer-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5px;
+  color: #888;
+  font-size: 0.8rem;
+  font-weight: bold;
+
+  .nav-btn {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &:hover:not(:disabled) {
+      color: #333;
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+}
+
+.sequencer-grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr); // 2 rows of 8
+  gap: 10px;
+  
+  @media (max-width: 500px) {
+    grid-template-columns: repeat(4, 1fr); // 4 rows of 4 on mobile
+  }
+
+  .step-btn {
+    aspect-ratio: 1;
+    background-color: #444;
+    border: none;
+    border-radius: 6px;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 
+      3px 3px 5px rgba(0,0,0,0.5),
+      inset 1px 1px 2px rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.1s;
+    color: #888;
+    font-family: monospace;
+
+    &:active {
+      transform: scale(0.95);
+      box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5);
+    }
+
+    &.selected {
+      border: 2px solid #ffcc00;
+      background-color: #555;
+    }
+
+    &.current {
+      background-color: #666;
+      .led {
+        background-color: #ffcc00; // Yellow for current position
+        box-shadow: 0 0 10px #ffcc00;
+      }
+    }
+
+    &.has-note {
+      .led {
+        background-color: #ff3333; // Red for active note
+        box-shadow: 0 0 8px #ff3333;
+      }
+      
+      &.current .led {
+        background-color: #ff9933; // Orange when playing active note
+        box-shadow: 0 0 12px #ff9933;
+      }
+    }
+
+    .step-number {
+      font-size: 0.7rem;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+    }
+
+    .note-name {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: #ddd;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .led {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #222;
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,0.8);
+      transition: background-color 0.05s;
+    }
+  }
+}

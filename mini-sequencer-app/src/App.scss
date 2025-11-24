@@ -1,0 +1,48 @@
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: #f0f0f0;
+  font-family: 'Courier New', Courier, monospace;
+  overflow: hidden; // Prevent scrolling if device is slightly larger
+}
+
+.device-casing {
+  background-color: #e0e0e0;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 
+    10px 10px 20px #bebebe,
+    -10px -10px 20px #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+  border: 2px solid #d0d0d0;
+}
+
+.top-section {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: flex-start;
+  
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+}
+
+.middle-section {
+  background-color: #333;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px inset #555;
+}
+
+.bottom-section {
+  display: flex;
+  justify-content: center;
+}
