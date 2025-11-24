@@ -1,6 +1,9 @@
 # Mini Sequencer
+<img width="286" height="224" alt="image" src="https://github.com/user-attachments/assets/2a362c4d-7b30-4ddd-9996-49dc874c4a44" />  
 
 A web-based step sequencer.
+
+
 
 ## Features
 
