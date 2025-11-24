@@ -3,8 +3,6 @@
 
 A web-based step sequencer.
 
-
-
 ## Features
 
 - **Step Sequencer**: Create melodies using a grid-based step sequencer.
@@ -52,8 +50,4 @@ Start the development server:
 npm run dev
 ```
 
-The application is run at `http://localhost:4396` (or the URL shown in the terminal).
-
-## License
-
-[MIT](LICENSE)
+The application is run at `http://localhost:4396`.
