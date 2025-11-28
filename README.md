@@ -50,4 +50,4 @@ Start the development server:
 npm run dev
 ```
 
-The application is run at `http://localhost:4396`.
+The application is ran at `http://localhost:4396`.
